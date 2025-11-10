@@ -1,0 +1,194 @@
+body {
+    background-color: #212529; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    }
+.card {
+    background-color: #343a40; /* Fondo de la tarjeta */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    }
+.card-header {
+    background-color: #28a745; /* Verde para el encabezado */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px 30px;
+    margin: -30px -30px 20px -30px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+.btn-control {
+    font-size: 1.2em;
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: 5px;
+    }
+
+.btn-left {
+    background-color: #007bff; /* Azul */
+    border-color: #007bff;
+    }
+
+.btn-left:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+    }
+
+.btn-right {
+    background-color: #dc3545; /* Rojo */
+    border-color: #dc3545;
+    }
+
+.btn-right:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+    transform: translateY(-2px);
+    }
+
+.btn-toggle {
+    background-color: #6c757d; /* Gris */
+    border-color: #6c757d;
+    color: #fff;
+    }
+    
+.btn-toggle.active {       
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+    }
+
+.form-check-label {
+    color: #f8f9fa;
+    }
+        
+.motor-image {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.motor-image.active {
+    transform: rotate(360deg); /* Simula movimiento */
+}
+
+.status-bar {
+    background-color: #212529;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.9em;
+    border: 1px solid #495057;
+}
+
+status-item {
+    display: flex;
+    align-items: center;
+}
+    
+.status-item img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.knob-container {
+    position: relative;
+    width: 200px; /* Tamaño del contenedor de la perilla */
+    height: 200px;
+    margin: 30px auto;
+    border-radius: 50%;
+    background-color: #495057; /* Fondo de la perilla */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #6c757d;
+}
+
+.knob {
+    position: relative;
+    width: 160px; /* Tamaño del dial */
+    height: 160px;
+    border-radius: 50%;
+    background-color: #343a40; /* Color del dial */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    transition: transform 0.1s linear; /* Para una rotación suave */
+}
+
+.knob.active {
+    cursor: grabbing;
+}
+
+.knob-indicator {
+    position: absolute;
+    top: 5px; /* Pequeño margen desde el borde superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 30px;
+    background-color: #28a745; /* Color del indicador (verde) */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform-origin: bottom; /* Punto de pivote para la rotación */
+}
+
+/* Estilos para la nueva perilla de velocidad/dirección */
+.knob-container {
+    position: relative;
+    width: 200px; /* Tamaño del contenedor de la perilla */
+    height: 200px;
+    margin: 30px auto;
+    border-radius: 50%;
+    background-color: #495057; /* Fondo de la perilla */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #6c757d;
+}
+
+.knob {
+    position: relative;
+    width: 160px; /* Tamaño del dial */
+    height: 160px;
+    border-radius: 50%;
+    background-color: #343a40; /* Color del dial */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    transition: transform 0.1s linear; /* Para una rotación suave */
+}
+
+.knob.active {
+    cursor: grabbing;
+}
+
+.knob-indicator {
+    position: absolute;
+    top: 5px; /* Pequeño margen desde el borde superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 30px;
+    background-color: #28a745; /* Color del indicador (verde) */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform-origin: bottom; /* Punto de pivote para la rotación */
+}

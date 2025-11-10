@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Motor a Pasos</title>
+    <!-- ¡ORDEN CORREGIDO Y rel="stylesheet" AÑADIDO! -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/Motor.css" rel="stylesheet"> <!-- AÑADIDO rel="stylesheet" -->
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            Control Remoto de Motor a Pasos
+        </div>
+        <div class="card-body">
+            <div class="row mb-4 align-items-center">
+                <div class="col-md-4 text-center">
+                    <label class="form-check-label mb-2">Modo de Pasos:</label>
+                    <div class="form-check form-switch d-inline-block ms-3">
+                        <input class="form-check-input" type="checkbox" id="stepModeSwitch">
+                        <label class="form-check-label" for="stepModeSwitch">Medios Pasos</label>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <button id="turnOnBtn" class="btn btn-success btn-control">Encender Motor</button>
+                    <button id="turnOffBtn" class="btn btn-danger btn-control">Apagar Motor</button>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img id="motorStaticImage" src="motor_static.png" alt="Motor Estático" class="motor-image">
+                </div>
+            </div>
+
+            <hr>
+
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-6 text-center">
+                <h5>Control de Velocidad y Dirección</h5>
+                <input type="text" class="knob" value="0" data-width="200" data-height="200"
+                        data-min="-100" data-max="100" data-angleOffset="-135" data-angleArc="270"
+                        data-fgColor="#28a745" data-bgColor="#495057" data-skin="tron"
+                        data-cursor="true" id="speedDirectionKnobInput">
+                <p class="mt-3">Velocidad: <span id="speedValue">0%</span></p>
+                <p>Dirección: <span id="currentDirection">Detenido</span></p>
+            </div>
+            <div class="col-md-6">
+            <h5>Control por Ángulo</h5>
+            <div class="text-center mb-3">
+                <input type="number" id="angleInput" class="form-control text-center d-inline-block" style="width: 150px;" value="90" min="0" max="360">
+                <span class="ms-2">grados</span>
+            </div>
+                <button id="rotateAngleBtn" class="btn btn-info btn-control w-100">Girar Ángulo</button>
+                <button id="fullTurnBtn" class="btn btn-warning btn-control w-100 mt-2">Vuelta Completa (360°)</button>
+            </div>
+        </div>
+
+            <hr>
+
+            <div class="status-bar">
+                <div class="status-item">
+                    <img src="wifi_icon.png" alt="Estado WiFi">
+                    Estado: <span id="connectionStatus" class="ms-1 text-success">Conectado</span>
+                </div>
+                <div class="status-item">
+                    <img src="steps_icon.png" alt="Pasos">
+                    Paso Actual: <span id="currentStep">0</span>
+                </div>
+                <div class="status-item">
+                    <img src="direction_icon.png" alt="Dirección">
+                    Dirección: <span id="currentDirection">Ninguna</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-knob@1.2.11/dist/jquery.knob.min.js"></script>
+    <script src="static/js/Motor.js"></script>
+</body>
+</html>
