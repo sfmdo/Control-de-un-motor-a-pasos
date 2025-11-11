@@ -1,195 +1,230 @@
 body {
-    background-color: #212529; 
-    color: #000000; 
+    background-color: #1a1a2e; /* Fondo oscuro principal */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    }
-.card {
-    background-color: #343a40;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    max-width: 900px;
-    width: 100%;
-    }
-.card-header {
-    background-color: #28a745; 
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 15px 30px;
-    margin: -30px -30px 20px -30px;
-    text-align: center;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
-.btn-control {
-    font-size: 1.2em;
-    padding: 15px 25px;
+}
+
+.text-light-green {
+    color: #00ff88; /* Verde brillante para textos destacados */
+}
+
+.bg-dark-card {
+    background-color: #2c2c4d; /* Fondo más claro para tarjetas */
     border-radius: 10px;
-    transition: all 0.3s ease;
-    margin: 5px;
-    }
+}
 
-.btn-left {
-    background-color: #007bff; /* Azul */       
+.bg-dark-header {
+    background-color: #3b3b6b; /* Fondo para encabezados de tarjeta */
+    border-bottom: 1px solid #00ff88;
+    color: #fff;
+    padding: 10px 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card {
+    border: none;
+}
+
+/* Indicador de encendido/apagado */
+.power-indicator {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ff4d4d; /* Rojo para apagado */
+    border: 2px solid #a00000;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.power-indicator.on {
+    background-color: #00ff88; /* Verde para encendido */
+    border-color: #00a05a;
+}
+
+/* Estilo para botones activos */
+.motor-control-btn.active, .mode-btn.active, .action-btn.active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 255, 136, 0.4);
+}
+
+.btn-success {
+    background-color: #00a05a;
+    border-color: #00a05a;
+}
+.btn-success:hover {
+    background-color: #008048;
+    border-color: #008048;
+}
+
+.btn-danger {
+    background-color: #a00000;
+    border-color: #a00000;
+}
+.btn-danger:hover {
+    background-color: #800000;
+    border-color: #800000;
+}
+
+.btn-primary {
+    background-color: #007bff;
     border-color: #007bff;
-    }
-
-.btn-left:hover {
+}
+.btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
-    transform: translateY(-2px);
-    }
+}
 
-.btn-right {
-    background-color: #dc3545; /* Rojo */
-    border-color: #dc3545;
-    }
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+}
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
 
-.btn-right:hover {
-    background-color: #c82333;
-    border-color: #c82333;
-    transform: translateY(-2px);
-    }
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-info:hover {
+    background-color: #117a8b;
+    border-color: #117a8b;
+}
 
-.btn-toggle {
-    background-color: #6c757d; /* Gris */
+.btn-secondary {
+    background-color: #6c757d;
     border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+.btn-outline-primary:hover {
+    background-color: #007bff;
     color: #fff;
-    }
-    
-.btn-toggle.active {       
-    background-color: #28a745; /* Verde */
-    border-color: #28a745;
-    }
+}
 
-.form-check-label {
+.btn-outline-light {
     color: #f8f9fa;
-    }
-        
-.motor-image {
-    max-width: 100px;
-    height: auto;
-    display: block;
+    border-color: #f8f9fa;
+}
+.btn-outline-light:hover {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Animación del motor */
+.motor-animation-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    transition: transform 0.2s ease-in-out;
 }
 
-.motor-image.active {
-    transform: rotate(360deg); /* Simula movimiento */
+.motor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.status-bar {
-    background-color: #212529;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin-top: 20px;
+.direction-arrow {
+    position: absolute;
+    width: 60px; /* Ajusta el tamaño de la flecha */
+    height: 60px;
+    transform-origin: center; /* Asegura que la rotación sea desde el centro */
+    transition: transform 0.1s linear; /* Transición suave para la rotación */
+    /* animation: spin 1s linear infinite; */
+}
+
+@keyframes spin-cw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Contenedor del Knob y su info para mejor posicionamiento */
+.knob-and-info-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    position: relative; /* Para que los elementos internos puedan posicionarse */
+    width: 200px;
+    margin: 20px auto;
+}
+
+/* Knob para velocidad y dirección */
+.knob {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#00ff88 0deg, #4d4d4d 0deg); /* Gris por defecto, se actualizará con JS */
+    border: 5px solid #00ff88;
+    position: relative;
+    cursor: grab;
+    touch-action: none; /* Previene el scroll en móviles al interactuar */
+    margin-bottom: 0; /* Eliminar margen inferior para que el texto se acerque */
+}
+
+.knob.active {
+    cursor: grabbing;
+}
+
+.knob-marker {
+    width: 10px;
+    height: 10px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px; /* Ajustar para que el marcador esté en el borde superior */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.knob-info {
+    margin-top: 10px; /* Separación explícita del knob */
+}
+
+/* Footer */
+footer {
+    padding: 10px 0;
     font-size: 0.9em;
-    border: 1px solid #495057;
 }
 
-status-item {
-    display: flex;
-    align-items: center;
-}
-    
-.status-item img {
-    margin-right: 5px;
-    width: 20px;
-    height: 20px;
-    color: white;
-}
-
-.knob-container {
-    position: relative;
-    width: 200px; /* Tamaño del contenedor de la perilla */
-    height: 200px;
-    margin: 30px auto;
-    border-radius: 50%;
-    background-color: #495057; /* Fondo de la perilla */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #6c757d;
-}
-
-.knob {
-    position: relative;
-    width: 160px; /* Tamaño del dial */
-    height: 160px;
-    border-radius: 50%;
-    background-color: #343a40; /* Color del dial */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    cursor: grab;
-    transition: transform 0.1s linear; /* Para una rotación suave */
-}
-
-.knob.active {
-    cursor: grabbing;
-}
-
-.knob-indicator {
-    position: absolute;
-    top: 5px; /* Pequeño margen desde el borde superior */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 30px;
-    background-color: #28a745; /* Color del indicador (verde) */
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    transform-origin: bottom; /* Punto de pivote para la rotación */
-}
-
-/* Estilos para la nueva perilla de velocidad/dirección */
-.knob-container {
-    position: relative;
-    width: 200px; /* Tamaño del contenedor de la perilla */
-    height: 200px;
-    margin: 30px auto;
-    border-radius: 50%;
-    background-color: #495057; /* Fondo de la perilla */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #6c757d;
-}
-
-.knob {
-    position: relative;
-    width: 160px; /* Tamaño del dial */
-    height: 160px;
-    border-radius: 50%;
-    background-color: #343a40; /* Color del dial */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    cursor: grab;
-    transition: transform 0.1s linear; /* Para una rotación suave */
-}
-
-.knob.active {
-    cursor: grabbing;
-}
-
-.knob-indicator {
-    position: absolute;
-    top: 5px; /* Pequeño margen desde el borde superior */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 30px;
-    background-color: #28a745; /* Color del indicador (verde) */
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    transform-origin: bottom; /* Punto de pivote para la rotación */
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .card-body .row > div {
+        margin-bottom: 10px;
+    }
+    .d-flex.justify-content-around button {
+        margin-bottom: 10px;
+    }
+    .motor-animation-container, .knob-and-info-container { /* Ajustar el nuevo contenedor */
+        width: 150px;
+    }
+    .knob {
+        width: 130px;
+        height: 130px;
+    }
+    .knob-marker {
+        width: 8px;
+        height: 8px;
+        top: 4px;
+    }
 }
