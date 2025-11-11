@@ -2,12 +2,8 @@
 
 $(function() { // Esto asegura que el código se ejecute una vez que el DOM esté listo
 
-    const esp32_ip = "192.168.1.100"; // ¡CAMBIA ESTO POR LA IP DE TU ESP32!
-
-    // Elementos de la perilla y texto (AHORA USANDO JQUERY)
-    // Ya no necesitamos 'speedDirectionKnob' ni 'knobIndicator' como variables separadas
-    // ya que jQuery Knob maneja el input directamente
-    const speedDirectionKnobInput = $('#speedDirectionKnobInput'); // Seleccionamos el input
+    const esp32_ip = "192.168.0.183"; // ¡CAMBIA ESTO POR LA IP DE TU ESP32!
+    const speedDirectionKnobInput = $('#speedDirectionKnobInput'); 
     const speedValueSpan = $('#speedValue');
     const currentDirectionSpan = $('#currentDirection');
 

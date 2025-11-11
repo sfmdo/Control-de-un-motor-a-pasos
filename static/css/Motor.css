@@ -1,6 +1,6 @@
 body {
-    background-color: #212529; /* Fondo oscuro */
-    color: #f8f9fa; /* Texto claro */
+    background-color: #212529; 
+    color: #000000; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@ body {
     margin: 0;
     }
 .card {
-    background-color: #343a40; /* Fondo de la tarjeta */
+    background-color: #343a40;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     padding: 30px;
@@ -17,7 +17,7 @@ body {
     width: 100%;
     }
 .card-header {
-    background-color: #28a745; /* Verde para el encabezado */
+    background-color: #28a745; 
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     padding: 15px 30px;
@@ -37,7 +37,7 @@ body {
     }
 
 .btn-left {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff; /* Azul */       
     border-color: #007bff;
     }
 
@@ -106,6 +106,7 @@ status-item {
     margin-right: 5px;
     width: 20px;
     height: 20px;
+    color: white;
 }
 
 .knob-container {
